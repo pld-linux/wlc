@@ -14,10 +14,12 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/w/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	15a3a221938aa4ef75698aed72ffd0be
 URL:		https://weblate.org/
-BuildRequires:	python3-devel
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+%if %{with tests}
+BuildRequires:	python3-httpretty
+%endif
 Requires:	python3-setuptools
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
